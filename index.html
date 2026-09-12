@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>워크박스 - 직장인·사업자 필수 도구 모음</title>
+
+<!-- ===== SEO ===== -->
+<meta name="description" content="연봉 실수령액, 4대보험, 퇴직금, 예·적금 이자, 부가세를 한 번에 계산하세요. 홈택스·국세청 등 정부기관 바로가기와 직장인 실무 노하우까지 무료로 제공합니다.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="워크박스">
+<link rel="canonical" href="https://moonled12-glitch.github.io/Workbox/">
+
+<!-- ===== 공유 미리보기 (카카오톡·페이스북) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="워크박스">
+<meta property="og:title" content="워크박스 - 직장인·사업자 필수 도구 모음">
+<meta property="og:description" content="연봉 실수령액·4대보험·퇴직금·부가세 계산기와 정부기관 바로가기를 한곳에서.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://moonled12-glitch.github.io/Workbox/">
+<!-- 썸네일 이미지(1200x630) 준비되면 추가 -->
+<!-- <meta property="og:image" content="https://예시주소/og-image.png"> -->
+
+<!-- ===== 공유 미리보기 (X·트위터) ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="워크박스 - 직장인·사업자 필수 도구 모음">
+<meta name="twitter:description" content="연봉 실수령액·4대보험·퇴직금·부가세 계산기와 정부기관 바로가기를 한곳에서.">
+
+<!-- ===== 검색엔진 소유확인 (서치콘솔 등록 후 발급값 입력) ===== -->
+<!-- <meta name="google-site-verification" content=""> -->
+<!-- <meta name="naver-site-verification" content=""> -->
+<style>
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eff6ff;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --border: #e2e8f0;
+    --green: #059669;
+    --red: #dc2626;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ===== 헤더 ===== */
+  header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    padding: 14px 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  .logo span { color: var(--text); }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav button {
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-sub);
+    padding: 18px 14px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-family: inherit;
+  }
+  nav button:hover { color: var(--primary); }
+  nav button.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+  /* ===== 공통 레이아웃 ===== */
+  main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+  .page { display: none; }
+  .page.active { display: block; }
+  h2.page-title { font-size: 24px; margin-bottom: 6px; }
+  p.page-desc { color: var(--text-sub); margin-bottom: 24px; font-size: 15px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* ===== 홈 ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: 26px; margin-bottom: 8px; }
+  .hero p { opacity: 0.92; font-size: 15px; }
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .quick-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .quick-item:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(37,99,235,.12); transform: translateY(-2px); }
+  .quick-item .icon { font-size: 30px; margin-bottom: 8px; }
+  .quick-item .name { font-weight: 700; font-size: 14px; }
+  .quick-item .sub { font-size: 12px; color: var(--text-sub); }
+  .info-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .info-box {
+    background: var(--primary-light);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+  }
+  .info-box .label { font-size: 13px; color: var(--text-sub); }
+  .info-box .value { font-size: 20px; font-weight: 800; color: var(--primary-dark); }
+  .info-box .note { font-size: 12px; color: var(--text-sub); }
+
+  /* ===== 계산기 ===== */
+  .calc-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .calc-tabs button {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 9px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-sub);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .calc-tabs button.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+  .calc-panel { display: none; }
+  .calc-panel.active { display: block; }
+  .form-row { margin-bottom: 16px; }
+  .form-row label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .form-row input[type="number"], .form-row input[type="date"], .form-row input[type="text"], .form-row select {
+    width: 100%;
+    max-width: 340px;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #fff;
+    color: var(--text);
+  }
+  .form-row input:focus, .form-row select:focus { outline: 2px solid var(--primary); border-color: transparent; }
+  .form-inline { display: flex; gap: 16px; flex-wrap: wrap; }
+  .form-inline .form-row { flex: 1; min-width: 200px; }
+  .radio-group { display: flex; gap: 16px; flex-wrap: wrap; }
+  .radio-group label { font-weight: 500; font-size: 14px; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn:hover { background: var(--primary-dark); }
+  .result-box {
+    background: var(--primary-light);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-top: 20px;
+    display: none;
+  }
+  .result-box.show { display: block; }
+  .result-main { font-size: 22px; font-weight: 800; color: var(--primary-dark); margin-bottom: 12px; }
+  .result-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .result-table td { padding: 7px 4px; border-bottom: 1px solid #dbeafe; }
+  .result-table td:last-child { text-align: right; font-weight: 600; }
+  .result-table tr.total td { font-weight: 800; color: var(--primary-dark); border-bottom: none; }
+  .disclaimer { font-size: 12px; color: var(--text-sub); margin-top: 14px; }
+  details.rates {
+    margin: 12px 0 4px;
+    font-size: 13px;
+  }
+  details.rates summary { cursor: pointer; color: var(--text-sub); font-weight: 600; }
+  details.rates .rates-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+  details.rates .rates-grid label { font-size: 13px; }
+  details.rates input { width: 90px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; }
+
+  /* ===== 바로가기 ===== */
+  .link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .link-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    transition: all .15s;
+  }
+  .link-card:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(37,99,235,.12); }
+  .link-card .name { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .link-card .name::after { content: " ↗"; color: var(--primary); font-size: 13px; }
+  .link-card .desc { font-size: 13px; color: var(--text-sub); }
+  h3.group-title { font-size: 17px; margin: 26px 0 12px; }
+  h3.group-title:first-of-type { margin-top: 0; }
+
+  /* ===== 노하우 ===== */
+  .knowhow-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .knowhow-item summary {
+    padding: 18px 22px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .knowhow-item summary::-webkit-details-marker { display: none; }
+  .knowhow-item summary::after { content: "+"; font-size: 20px; color: var(--primary); }
+  .knowhow-item[open] summary::after { content: "−"; }
+  .knowhow-item .body { padding: 0 22px 20px; font-size: 14px; color: #334155; }
+  .knowhow-item .body ul { padding-left: 20px; margin: 8px 0; }
+  .knowhow-item .body li { margin-bottom: 5px; }
+  .tag {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-right: 8px;
+  }
+
+  /* ===== 검색 ===== */
+  .search-box { display: flex; gap: 10px; max-width: 560px; }
+  .search-box input {
+    flex: 1;
+    padding: 13px 16px;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  .search-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .search-btns button {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+  }
+  .search-btns button:hover { border-color: var(--primary); color: var(--primary); }
+
+  /* ===== 준비중 ===== */
+  .coming-soon {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  .coming-soon .icon { font-size: 48px; margin-bottom: 14px; }
+  .coming-soon h3 { font-size: 20px; margin-bottom: 8px; }
+  .coming-soon p { color: var(--text-sub); font-size: 14px; max-width: 480px; margin: 0 auto; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-sub);
+  }
+
+  @media (max-width: 640px) {
+    nav button { padding: 12px 10px; font-size: 14px; }
+    .hero { padding: 26px 20px; }
+    .hero h1 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo" onclick="showPage('home')">워크<span>박스</span></div>
+    <nav>
+      <button data-page="home" class="active" onclick="showPage('home')">홈</button>
+      <button data-page="calc" onclick="showPage('calc')">계산기</button>
+      <button data-page="links" onclick="showPage('links')">기관 바로가기</button>
+      <button data-page="knowhow" onclick="showPage('knowhow')">직장인 노하우</button>
+      <button data-page="search" onclick="showPage('search')">키워드 검색</button>
+      <!-- 커뮤니티: 내용 준비되면 아래 주석 해제 -->
+      <!-- <button data-page="community" onclick="showPage('community')">커뮤니티</button> -->
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 홈 ============ -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <h1>일하는 사람들의 필수 도구함, 워크박스</h1>
+    <p>근로자와 개인사업자를 위한 계산기 · 정부기관 바로가기 · 실무 노하우를 한곳에서.</p>
+  </div>
+
+  <div class="info-strip">
+    <div class="info-box">
+      <div class="label">2026년 최저임금 (시급)</div>
+      <div class="value">10,320원</div>
+      <div class="note">월 209시간 기준 약 2,156,880원</div>
+    </div>
+    <div class="info-box">
+      <div class="label">주 52시간 근무제</div>
+      <div class="value">법정 40 + 연장 12</div>
+      <div class="note">연장근로 가산수당 50%</div>
+    </div>
+    <div class="info-box">
+      <div class="label">이자소득세율</div>
+      <div class="value">15.4%</div>
+      <div class="note">소득세 14% + 지방소득세 1.4%</div>
+    </div>
+  </div>
+
+  <h2 class="page-title" style="font-size:19px; margin-bottom:14px;">자주 쓰는 계산기</h2>
+  <div class="quick-grid">
+    <div class="quick-item" onclick="showPage('calc'); showCalc('salary')">
+      <div class="icon">💰</div><div class="name">연봉 실수령액</div><div class="sub">세후 월급 계산</div>
+    </div>
+    <div class="quick-item" onclick="showPage('calc'); showCalc('insurance')">
+      <div class="icon">🏥</div><div class="name">4대보험</div><div class="sub">근로자·사업주 부담금</div>
+    </div>
+    <div class="quick-item" onclick="showPage('calc'); showCalc('severance')">
+      <div class="icon">🧳</div><div class="name">퇴직금</div><div class="sub">평균임금 기준</div>
+    </div>
+    <div class="quick-item" onclick="showPage('calc'); showCalc('interest')">
+      <div class="icon">🏦</div><div class="name">예·적금 이자</div><div class="sub">단리/복리, 세후</div>
+    </div>
+    <div class="quick-item" onclick="showPage('calc'); showCalc('vat')">
+      <div class="icon">🧾</div><div class="name">부가세</div><div class="sub">공급가액 ↔ 합계</div>
+    </div>
+    <div class="quick-item" onclick="showPage('calc'); showCalc('exchange')">
+      <div class="icon">💱</div><div class="name">환율</div><div class="sub">실시간 환율 조회</div>
+    </div>
+  </div>
+
+  <h2 class="page-title" style="font-size:19px; margin-bottom:14px;">지금 뜨는 검색어 확인하기</h2>
+  <div class="card">
+    <p style="font-size:14px; color:var(--text-sub); margin-bottom:14px;">
+      네이버 실시간 검색어는 2021년에 종료되었습니다. 아래 서비스에서 실시간 트렌드를 확인할 수 있어요.
+    </p>
+    <div class="search-btns">
+      <button onclick="window.open('https://trends.google.co.kr/trending?geo=KR','_blank')">구글 트렌드 (한국 실시간)</button>
+      <button onclick="window.open('https://signal.bz/','_blank')">시그널 실시간 검색어</button>
+      <button onclick="window.open('https://datalab.naver.com/','_blank')">네이버 데이터랩</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 계산기 ============ -->
+<section class="page" id="page-calc">
+  <h2 class="page-title">계산기</h2>
+  <p class="page-desc">근로자·사업자가 자주 쓰는 계산기를 모았습니다. 결과는 참고용 근사치입니다.</p>
+
+  <div class="calc-tabs">
+    <button data-calc="salary" class="active" onclick="showCalc('salary')">연봉 실수령액</button>
+    <button data-calc="insurance" onclick="showCalc('insurance')">4대보험</button>
+    <button data-calc="severance" onclick="showCalc('severance')">퇴직금</button>
+    <button data-calc="interest" onclick="showCalc('interest')">예·적금 이자</button>
+    <button data-calc="vat" onclick="showCalc('vat')">부가세</button>
+    <button data-calc="exchange" onclick="showCalc('exchange')">환율</button>
+  </div>
+
+  <!-- 연봉 실수령액 -->
+  <div class="calc-panel active card" id="calc-salary">
+    <div class="form-row">
+      <label>급여 기준</label>
+      <div class="radio-group">
+        <label><input type="radio" name="salType" value="year" checked> 연봉</label>
+        <label><input type="radio" name="salType" value="month"> 월급</label>
+      </div>
+    </div>
+    <div class="form-inline">
+      <div class="form-row">
+        <label>금액 (원)</label>
+        <input type="number" id="salAmount" placeholder="예: 40000000">
+      </div>
+      <div class="form-row">
+        <label>비과세액 (월, 식대 등)</label>
+        <input type="number" id="salTaxFree" value="200000">
+      </div>
+    </div>
+    <div class="form-inline">
+      <div class="form-row">
+        <label>부양가족 수 (본인 포함)</label>
+        <input type="number" id="salDependents" value="1" min="1">
+      </div>
+      <div class="form-row">
+        <label>8세 이상 20세 이하 자녀 수</label>
+        <input type="number" id="salChildren" value="0" min="0">
+      </div>
+    </div>
+    <button class="btn" onclick="calcSalary()">계산하기</button>
+    <div class="result-box" id="salResult"></div>
+    <p class="disclaimer">※ 간이세액표 방식의 근사 계산으로 실제 급여명세서와 차이가 있을 수 있습니다. 연말정산 결과에 따라 최종 세액은 달라집니다.</p>
+  </div>
+
+  <!-- 4대보험 -->
+  <div class="calc-panel card" id="calc-insurance">
+    <div class="form-inline">
+      <div class="form-row">
+        <label>월 급여 (원)</label>
+        <input type="number" id="insSalary" placeholder="예: 3000000">
+      </div>
+      <div class="form-row">
+        <label>비과세액 (월)</label>
+        <input type="number" id="insTaxFree" value="200000">
+      </div>
+    </div>
+    <details class="rates">
+      <summary>적용 요율 보기 / 수정 (2026년 기준)</summary>
+      <div class="rates-grid">
+        <label>국민연금(근로자) <input type="number" id="ratePension" value="4.75" step="0.01"> %</label>
+        <label>건강보험(전체) <input type="number" id="rateHealth" value="7.09" step="0.001"> %</label>
+        <label>장기요양(건보료의) <input type="number" id="rateLtc" value="12.95" step="0.01"> %</label>
+        <label>고용보험(근로자) <input type="number" id="rateEmp" value="0.9" step="0.01"> %</label>
+      </div>
+      <p style="margin-top:8px; color:var(--text-sub);">국민연금은 2026년부터 연금개혁으로 보험료율이 단계 인상됩니다. 고시 요율이 바뀌면 위 값을 수정해 사용하세요.</p>
+    </details>
+    <button class="btn" onclick="calcInsurance()">계산하기</button>
+    <div class="result-box" id="insResult"></div>
+    <p class="disclaimer">※ 국민연금 기준소득월액 상한 637만원·하한 40만원 적용. 산재보험은 업종별 요율로 사업주가 전액 부담합니다. 사업주 고용보험에는 고용안정·직업능력개발 부담분(0.25%~)이 추가됩니다.</p>
+  </div>
+
+  <!-- 퇴직금 -->
+  <div class="calc-panel card" id="calc-severance">
+    <div class="form-inline">
+      <div class="form-row">
+        <label>입사일</label>
+        <input type="date" id="sevStart">
+      </div>
+      <div class="form-row">
+        <label>퇴사일 (마지막 근무일)</label>
+        <input type="date" id="sevEnd">
+      </div>
+    </div>
+    <div class="form-inline">
+      <div class="form-row">
+        <label>월 기본급+수당 (세전, 원)</label>
+        <input type="number" id="sevSalary" placeholder="예: 3000000">
+      </div>
+      <div class="form-row">
+        <label>연간 상여금 총액 (원)</label>
+        <input type="number" id="sevBonus" value="0">
+      </div>
+      <div class="form-row">
+        <label>연차수당 (연간, 원)</label>
+        <input type="number" id="sevLeave" value="0">
+      </div>
+    </div>
+    <button class="btn" onclick="calcSeverance()">계산하기</button>
+    <div class="result-box" id="sevResult"></div>
+    <p class="disclaimer">※ 퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365). 1년 이상 근무 시 지급 대상이며, 평균임금은 퇴사 전 3개월 임금 기준입니다. 정확한 금액은 고용노동부 퇴직금 계산기 또는 회사 규정을 확인하세요.</p>
+  </div>
+
+  <!-- 이자 -->
+  <div class="calc-panel card" id="calc-interest">
+    <div class="form-row">
+      <label>상품 유형</label>
+      <div class="radio-group">
+        <label><input type="radio" name="intType" value="deposit" checked> 예금 (목돈 예치)</label>
+        <label><input type="radio" name="intType" value="saving"> 적금 (매월 납입)</label>
+      </div>
+    </div>
+    <div class="form-inline">
+      <div class="form-row">
+        <label id="intAmountLabel">예치 금액 (원)</label>
+        <input type="number" id="intAmount" placeholder="예: 10000000">
+      </div>
+      <div class="form-row">
+        <label>기간 (개월)</label>
+        <input type="number" id="intMonths" value="12">
+      </div>
+      <div class="form-row">
+        <label>연 이율 (%)</label>
+        <input type="number" id="intRate" step="0.01" placeholder="예: 3.5">
+      </div>
+    </div>
+    <div class="form-inline">
+      <div class="form-row">
+        <label>이자 방식</label>
+        <div class="radio-group">
+          <label><input type="radio" name="intMethod" value="simple" checked> 단리</label>
+          <label><input type="radio" name="intMethod" value="compound"> 월복리</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>세금</label>
+        <div class="radio-group">
+          <label><input type="radio" name="intTax" value="normal" checked> 일반과세 (15.4%)</label>
+          <label><input type="radio" name="intTax" value="none"> 비과세</label>
+        </div>
+      </div>
+    </div>
+    <button class="btn" onclick="calcInterest()">계산하기</button>
+    <div class="result-box" id="intResult"></div>
+    <p class="disclaimer">※ 적금은 매월 초 납입 기준입니다. 실제 상품의 이자 계산 방식·우대금리에 따라 차이가 있을 수 있습니다.</p>
+  </div>
+
+  <!-- 부가세 -->
+  <div class="calc-panel card" id="calc-vat">
+    <div class="form-row">
+      <label>계산 방향</label>
+      <div class="radio-group">
+        <label><input type="radio" name="vatDir" value="fromSupply" checked> 공급가액 → 합계금액</label>
+        <label><input type="radio" name="vatDir" value="fromTotal"> 합계금액 → 공급가액</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <label id="vatLabel">공급가액 (원)</label>
+      <input type="number" id="vatAmount" placeholder="예: 1000000">
+    </div>
+    <button class="btn" onclick="calcVat()">계산하기</button>
+    <div class="result-box" id="vatResult"></div>
+    <p class="disclaimer">※ 일반과세 기준 부가가치세율 10% 적용.</p>
+  </div>
+
+  <!-- 환율 -->
+  <div class="calc-panel card" id="calc-exchange">
+    <div class="form-inline">
+      <div class="form-row">
+        <label>금액</label>
+        <input type="number" id="exAmount" value="1" step="any">
+      </div>
+      <div class="form-row">
+        <label>기준 통화</label>
+        <select id="exFrom">
+          <option value="USD" selected>미국 달러 (USD)</option>
+          <option value="KRW">대한민국 원 (KRW)</option>
+          <option value="JPY">일본 엔 (JPY)</option>
+          <option value="EUR">유로 (EUR)</option>
+          <option value="CNY">중국 위안 (CNY)</option>
+          <option value="GBP">영국 파운드 (GBP)</option>
+          <option value="VND">베트남 동 (VND)</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>변환 통화</label>
+        <select id="exTo">
+          <option value="KRW" selected>대한민국 원 (KRW)</option>
+          <option value="USD">미국 달러 (USD)</option>
+          <option value="JPY">일본 엔 (JPY)</option>
+          <option value="EUR">유로 (EUR)</option>
+          <option value="CNY">중국 위안 (CNY)</option>
+          <option value="GBP">영국 파운드 (GBP)</option>
+          <option value="VND">베트남 동 (VND)</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" onclick="calcExchange()">환율 조회 및 계산</button>
+    <div class="result-box" id="exResult"></div>
+    <p class="disclaimer">※ 시장 중간환율 기준(무료 공개 API)이며, 은행 매매기준율·환전 수수료에 따라 실제 환전 금액과 다릅니다. 인터넷 연결이 필요합니다.</p>
+  </div>
+</section>
+
+<!-- ============ 기관 바로가기 ============ -->
+<section class="page" id="page-links">
+  <h2 class="page-title">정부기관 바로가기</h2>
+  <p class="page-desc">근로자·사업자가 자주 찾는 정부·공공기관 사이트 모음입니다.</p>
+
+  <h3 class="group-title">세금 · 국세</h3>
+  <div class="link-grid">
+    <a class="link-card" href="https://hometax.go.kr" target="_blank"><div class="name">홈택스</div><div class="desc">연말정산, 종합소득세, 세금 신고·납부</div></a>
+    <a class="link-card" href="https://www.nts.go.kr" target="_blank"><div class="name">국세청</div><div class="desc">세금 제도 안내, 세무 뉴스</div></a>
+    <a class="link-card" href="https://www.wetax.go.kr" target="_blank"><div class="name">위택스</div><div class="desc">지방세(재산세·자동차세 등) 신고·납부</div></a>
+  </div>
+
+  <h3 class="group-title">4대보험 · 노동</h3>
+  <div class="link-grid">
+    <a class="link-card" href="https://www.4insure.or.kr" target="_blank"><div class="name">4대사회보험 정보연계센터</div><div class="desc">4대보험 가입내역 조회, 사업장 신고</div></a>
+    <a class="link-card" href="https://www.nps.or.kr" target="_blank"><div class="name">국민연금공단</div><div class="desc">예상 연금액 조회, 납부내역 확인</div></a>
+    <a class="link-card" href="https://www.nhis.or.kr" target="_blank"><div class="name">국민건강보험공단</div><div class="desc">건강보험료 조회, 환급금 신청, 건강검진</div></a>
+    <a class="link-card" href="https://www.comwel.or.kr" target="_blank"><div class="name">근로복지공단</div><div class="desc">퇴직금, 산재보상, 임금채권 지원</div></a>
+    <a class="link-card" href="https://www.work24.go.kr" target="_blank"><div class="name">고용24</div><div class="desc">실업급여 신청, 구직급여, 국민내일배움카드</div></a>
+    <a class="link-card" href="https://www.moel.go.kr" target="_blank"><div class="name">고용노동부</div><div class="desc">임금체불 진정, 근로기준법, 노동 민원</div></a>
+  </div>
+
+  <h3 class="group-title">민원 · 생활</h3>
+  <div class="link-grid">
+    <a class="link-card" href="https://www.gov.kr" target="_blank"><div class="name">정부24</div><div class="desc">주민등록등본 등 각종 민원서류 발급</div></a>
+    <a class="link-card" href="https://www.bokjiro.go.kr" target="_blank"><div class="name">복지로</div><div class="desc">정부 복지혜택 조회·신청</div></a>
+    <a class="link-card" href="https://www.epeople.go.kr" target="_blank"><div class="name">국민신문고</div><div class="desc">행정기관 민원·제안 접수</div></a>
+    <a class="link-card" href="http://www.iros.go.kr" target="_blank"><div class="name">인터넷등기소</div><div class="desc">부동산·법인 등기부등본 발급</div></a>
+  </div>
+
+  <h3 class="group-title">사업자 · 소상공인</h3>
+  <div class="link-grid">
+    <a class="link-card" href="https://www.sbiz24.kr" target="_blank"><div class="name">소상공인24</div><div class="desc">소상공인 지원사업 통합 신청</div></a>
+    <a class="link-card" href="https://www.smes.go.kr" target="_blank"><div class="name">중소벤처24</div><div class="desc">중소기업 지원사업 조회·신청</div></a>
+    <a class="link-card" href="https://www.kinfa.or.kr" target="_blank"><div class="name">서민금융진흥원</div><div class="desc">정책서민금융 상품 안내</div></a>
+    <a class="link-card" href="https://www.ftc.go.kr" target="_blank"><div class="name">공정거래위원회</div><div class="desc">사업자등록 조회, 통신판매업 신고</div></a>
+  </div>
+</section>
+
+<!-- ============ 노하우 ============ -->
+<section class="page" id="page-knowhow">
+  <h2 class="page-title">직장인 노하우</h2>
+  <p class="page-desc">알아두면 돈이 되는 실무 상식 모음. 항목을 누르면 내용이 펼쳐집니다.</p>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">연말정산</span>놓치기 쉬운 공제 항목 체크리스트</span></summary>
+    <div class="body">
+      <ul>
+        <li><b>월세 세액공제</b> — 총급여 8천만원 이하 무주택 세대주라면 월세의 15~17% 공제. 계좌이체 내역과 임대차계약서만 있으면 됩니다.</li>
+        <li><b>안경·콘택트렌즈 구입비</b> — 시력교정용은 1인당 연 50만원까지 의료비 공제 대상.</li>
+        <li><b>중소기업 취업자 소득세 감면</b> — 만 34세 이하 청년이 중소기업 취업 시 5년간 소득세 90% 감면(한도 연 200만원). 회사에 감면신청서 제출 필요.</li>
+        <li><b>부모님 인적공제</b> — 따로 살아도 소득이 없는 부모님(60세 이상)께 생활비를 보태고 있다면 기본공제 가능.</li>
+        <li><b>주택청약저축</b> — 총급여 7천만원 이하 무주택 세대주는 납입액(연 300만원 한도)의 40% 소득공제.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">퇴사</span>퇴사 전 반드시 챙겨야 할 것들</span></summary>
+    <div class="body">
+      <ul>
+        <li><b>남은 연차 확인</b> — 미사용 연차는 연차수당으로 정산받을 수 있습니다(회사 규정 확인).</li>
+        <li><b>퇴직금 지급기한</b> — 퇴사일로부터 14일 이내 지급이 원칙. 지연 시 연 20% 지연이자가 붙습니다.</li>
+        <li><b>경력증명서·원천징수영수증</b> — 이직·연말정산에 필요하니 퇴사 전 미리 요청하세요.</li>
+        <li><b>건강보험 임의계속가입</b> — 퇴사 후 지역가입자 보험료가 부담되면, 직장 보험료 수준으로 최대 36개월 유지 가능(퇴사 후 2개월 내 신청).</li>
+        <li><b>퇴직금 IRP 수령</b> — 퇴직금은 IRP 계좌로 받으면 퇴직소득세 과세가 이연되고, 55세 이후 연금 수령 시 세금의 30~40%가 감면됩니다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">실업급여</span>구직급여 받을 수 있는 조건과 금액</span></summary>
+    <div class="body">
+      <ul>
+        <li><b>조건</b> — 이직일 전 18개월 중 고용보험 가입기간 180일 이상 + 비자발적 퇴사(권고사직, 계약만료 등).</li>
+        <li><b>자발적 퇴사도 예외 인정</b> — 임금체불, 통근 왕복 3시간 이상, 직장 내 괴롭힘, 질병 등은 자진퇴사여도 수급 가능할 수 있습니다.</li>
+        <li><b>금액</b> — 평균임금의 60% (상·하한액 있음), 나이·가입기간에 따라 120~270일 지급.</li>
+        <li><b>신청</b> — 고용24에서 수급자격 신청 후 거주지 고용센터 방문. 퇴사 후 12개월이 지나면 남은 일수가 있어도 못 받으니 빨리 신청하세요.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">연차</span>내 연차 개수 계산법</span></summary>
+    <div class="body">
+      <ul>
+        <li><b>1년 미만</b> — 1개월 개근 시 1일씩 발생 (최대 11일).</li>
+        <li><b>1년 이상</b> — 1년간 80% 이상 출근 시 15일.</li>
+        <li><b>가산연차</b> — 3년 차부터 2년마다 1일씩 추가 (최대 25일). 예: 3년 차 16일, 5년 차 17일.</li>
+        <li><b>연차촉진제도</b> — 회사가 법정 절차로 연차 사용을 촉진했다면 미사용 연차수당을 안 줄 수 있으니, 촉진 통보를 받았다면 꼭 사용하세요.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">수당</span>주휴수당·연장수당, 제대로 받고 있나요?</span></summary>
+    <div class="body">
+      <ul>
+        <li><b>주휴수당</b> — 주 15시간 이상 일하고 개근하면 하루치 유급휴일 수당 발생. 아르바이트도 해당됩니다.</li>
+        <li><b>연장근로</b> — 하루 8시간·주 40시간 초과분은 통상임금의 50% 가산.</li>
+        <li><b>야간근로</b> — 밤 10시~새벽 6시 근무는 50% 가산 (연장과 중복 시 합산).</li>
+        <li><b>휴일근로</b> — 8시간 이내 50%, 8시간 초과분은 100% 가산.</li>
+        <li>임금 미지급 시 고용노동부 홈페이지에서 임금체불 진정을 제기할 수 있습니다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">사업자</span>개인사업자 세금 일정 한눈에 보기</span></summary>
+    <div class="body">
+      <ul>
+        <li><b>1월 25일</b> — 부가가치세 2기 확정신고 (일반과세자) / 간이과세자 연 1회 신고.</li>
+        <li><b>5월 31일</b> — 종합소득세 확정신고·납부 (성실신고확인 대상자는 6월 말).</li>
+        <li><b>7월 25일</b> — 부가가치세 1기 확정신고.</li>
+        <li><b>매월 10일</b> — 직원 고용 시 원천세 신고·납부 (반기납부 신청 시 1월·7월).</li>
+        <li><b>팁</b> — 홈택스 '세금비서' 서비스를 이용하면 신고 일정을 알림으로 받을 수 있습니다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">프리랜서</span>3.3% 떼인 세금, 5월에 돌려받으세요</span></summary>
+    <div class="body">
+      <ul>
+        <li>프리랜서 소득에서 원천징수된 3.3%는 '기납부세액'입니다. 5월 종합소득세 신고 시 실제 세액보다 많이 냈다면 <b>환급</b>받습니다.</li>
+        <li>수입이 적거나 경비가 많으면 대부분 환급 대상 — 신고를 안 하면 돌려받을 수 없습니다.</li>
+        <li>홈택스 '모두채움 신고'를 이용하면 클릭 몇 번으로 신고가 끝나는 경우가 많습니다.</li>
+        <li>연 수입 7,500만원 미만이고 다른 소득이 없다면 단순경비율 적용으로 세금이 크게 줄어들 수 있습니다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="knowhow-item">
+    <summary><span><span class="tag">육아</span>육아휴직·출산휴가 급여 핵심 정리</span></summary>
+    <div class="body">
+      <ul>
+        <li><b>출산전후휴가</b> — 90일(다태아 120일) 유급. 급여는 고용보험에서 지원.</li>
+        <li><b>육아휴직</b> — 자녀 1명당 최대 1년 6개월(부모 모두 3개월 이상 사용 시). 급여는 통상임금의 100% (월 상한 250만원, 기간별 차등).</li>
+        <li><b>부모 동시 육아휴직(6+6 제도)</b> — 생후 18개월 내 부모가 함께 쓰면 첫 6개월 급여 상한이 크게 올라갑니다.</li>
+        <li><b>육아기 근로시간 단축</b> — 휴직 대신 주 15~35시간 단축근무 선택 가능, 단축분 급여 지원.</li>
+        <li>신청은 고용24에서 가능하며, 회사는 정당한 사유 없이 거부할 수 없습니다.</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 키워드 검색 ============ -->
+<section class="page" id="page-search">
+  <h2 class="page-title">키워드 검색</h2>
+  <p class="page-desc">검색어를 입력하고 원하는 서비스에서 바로 검색하세요.</p>
+  <div class="card">
+    <div class="search-box">
+      <input type="text" id="kwInput" placeholder="검색어를 입력하세요" onkeydown="if(event.key==='Enter')searchKeyword('naver')">
+      <button class="btn" onclick="searchKeyword('naver')">네이버 검색</button>
+    </div>
+    <div class="search-btns">
+      <button onclick="searchKeyword('naverBlog')">네이버 블로그</button>
+      <button onclick="searchKeyword('naverNews')">네이버 뉴스</button>
+      <button onclick="searchKeyword('naverShopping')">네이버 쇼핑</button>
+      <button onclick="searchKeyword('datalab')">데이터랩 검색어트렌드</button>
+      <button onclick="searchKeyword('google')">구글 검색</button>
+      <button onclick="searchKeyword('googleTrends')">구글 트렌드 비교</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="font-size:16px; margin-bottom:10px;">키워드 분석 도구</h3>
+    <p style="font-size:14px; color:var(--text-sub); margin-bottom:12px;">블로그·스마트스토어 운영자를 위한 검색량 분석 사이트입니다.</p>
+    <div class="search-btns">
+      <button onclick="window.open('https://searchad.naver.com/','_blank')">네이버 검색광고 키워드도구</button>
+      <button onclick="window.open('https://datalab.naver.com/keyword/trendSearch.naver','_blank')">데이터랩 검색어트렌드</button>
+      <button onclick="window.open('https://trends.google.co.kr/trends/?geo=KR','_blank')">구글 트렌드</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 커뮤니티 ============ -->
+<section class="page" id="page-community">
+  <h2 class="page-title">커뮤니티</h2>
+  <div class="card coming-soon">
+    <div class="icon">💬</div>
+    <h3>커뮤니티는 준비 중입니다</h3>
+    <p>
+      글 작성·댓글 기능은 회원 관리와 데이터 저장을 위한 서버가 필요합니다.<br>
+      사이트를 인터넷에 배포한 뒤 게시판 기능을 붙이는 단계에서 오픈할 예정입니다.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  워크박스 · 본 사이트의 계산 결과는 참고용이며 법적 효력이 없습니다. 정확한 금액은 관련 기관에 확인하세요.
+</footer>
+
+<script>
+/* ===== 공통 ===== */
+const won = n => Math.round(n).toLocaleString('ko-KR') + '원';
+const num = id => parseFloat(document.getElementById(id).value) || 0;
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b => b.classList.toggle('active', b.dataset.page === name));
+  window.scrollTo(0, 0);
+}
+function showCalc(name) {
+  document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('calc-' + name).classList.add('active');
+  document.querySelectorAll('.calc-tabs button').forEach(b => b.classList.toggle('active', b.dataset.calc === name));
+}
+
+/* ===== 4대보험 (근로자/사업주) ===== */
+const PENSION_MAX = 6370000, PENSION_MIN = 400000;
+function insuranceOf(monthlyTaxable) {
+  const rPension = num('ratePension') / 100;
+  const rHealth = num('rateHealth') / 100 / 2;   // 근로자 절반
+  const rLtc = num('rateLtc') / 100;
+  const rEmp = num('rateEmp') / 100;
+  const pensionBase = Math.min(Math.max(monthlyTaxable, PENSION_MIN), PENSION_MAX);
+  const pension = pensionBase * rPension;
+  const health = monthlyTaxable * rHealth;
+  const ltc = health * rLtc;
+  const emp = monthlyTaxable * rEmp;
+  return { pension, health, ltc, emp, total: pension + health + ltc + emp };
+}
+
+function calcInsurance() {
+  const salary = num('insSalary');
+  if (!salary) { alert('월 급여를 입력하세요.'); return; }
+  const taxable = Math.max(0, salary - num('insTaxFree'));
+  const w = insuranceOf(taxable);
+  const empEmployer = taxable * (num('rateEmp') / 100 + 0.0025);
+  const employerTotal = w.pension + w.health + w.ltc + empEmployer;
+  const box = document.getElementById('insResult');
+  box.innerHTML = `
+    <div class="result-main">근로자 부담 합계: 월 ${won(w.total)}</div>
+    <table class="result-table">
+      <tr><td>국민연금 (근로자)</td><td>${won(w.pension)}</td></tr>
+      <tr><td>건강보험 (근로자)</td><td>${won(w.health)}</td></tr>
+      <tr><td>장기요양보험 (근로자)</td><td>${won(w.ltc)}</td></tr>
+      <tr><td>고용보험 (근로자)</td><td>${won(w.emp)}</td></tr>
+      <tr class="total"><td>근로자 공제 합계</td><td>${won(w.total)}</td></tr>
+      <tr><td colspan="2" style="padding-top:14px; font-weight:700;">사업주 부담 (산재보험 별도)</td></tr>
+      <tr><td>국민연금 + 건강 + 장기요양</td><td>${won(w.pension + w.health + w.ltc)}</td></tr>
+      <tr><td>고용보험 (실업급여 + 고용안정 0.25%)</td><td>${won(empEmployer)}</td></tr>
+      <tr class="total"><td>사업주 부담 합계</td><td>${won(employerTotal)}</td></tr>
+    </table>`;
+  box.classList.add('show');
+}
+
+/* ===== 근로소득세 (근사) ===== */
+function earnedIncomeDeduction(gross) {
+  if (gross <= 5000000) return gross * 0.7;
+  if (gross <= 15000000) return 3500000 + (gross - 5000000) * 0.4;
+  if (gross <= 45000000) return 7500000 + (gross - 15000000) * 0.15;
+  if (gross <= 100000000) return 12000000 + (gross - 45000000) * 0.05;
+  return Math.min(20000000, 14750000 + (gross - 100000000) * 0.02);
+}
+function progressiveTax(base) {
+  if (base <= 0) return 0;
+  if (base <= 14000000) return base * 0.06;
+  if (base <= 50000000) return 840000 + (base - 14000000) * 0.15;
+  if (base <= 88000000) return 6240000 + (base - 50000000) * 0.24;
+  if (base <= 150000000) return 15360000 + (base - 88000000) * 0.35;
+  if (base <= 300000000) return 37060000 + (base - 150000000) * 0.38;
+  if (base <= 500000000) return 94060000 + (base - 300000000) * 0.40;
+  if (base <= 1000000000) return 174060000 + (base - 500000000) * 0.42;
+  return 384060000 + (base - 1000000000) * 0.45;
+}
+function earnedIncomeTaxCredit(calcTax, gross) {
+  let credit = calcTax <= 1300000 ? calcTax * 0.55 : 715000 + (calcTax - 1300000) * 0.30;
+  let cap;
+  if (gross <= 33000000) cap = 740000;
+  else if (gross <= 70000000) cap = Math.max(660000, 740000 - (gross - 33000000) * 0.008);
+  else if (gross <= 120000000) cap = Math.max(500000, 660000 - (gross - 70000000) * 0.5);
+  else cap = Math.max(200000, 500000 - (gross - 120000000) * 0.5);
+  return Math.min(credit, cap);
+}
+function childTaxCredit(n) {
+  if (n <= 0) return 0;
+  if (n === 1) return 250000;
+  if (n === 2) return 550000;
+  return 550000 + (n - 2) * 400000;
+}
+
+function calcSalary() {
+  const amount = num('salAmount');
+  if (!amount) { alert('금액을 입력하세요.'); return; }
+  const isYear = document.querySelector('input[name="salType"]:checked').value === 'year';
+  const monthly = isYear ? amount / 12 : amount;
+  const taxFree = num('salTaxFree');
+  const taxableMonthly = Math.max(0, monthly - taxFree);
+  const dependents = Math.max(1, num('salDependents'));
+  const children = num('salChildren');
+
+  // 4대보험은 기본 요율 사용 (요율 입력칸은 4대보험 탭과 공유)
+  const ins = insuranceOf(taxableMonthly);
+
+  // 연 기준 소득세 근사
+  const grossYear = taxableMonthly * 12;
+  const taxBase = Math.max(0, grossYear - earnedIncomeDeduction(grossYear)
+    - dependents * 1500000 - ins.total * 12);
+  const calcTax = progressiveTax(taxBase);
+  const finalTax = Math.max(0, calcTax - earnedIncomeTaxCredit(calcTax, grossYear) - childTaxCredit(children));
+  const incomeTax = finalTax / 12;
+  const localTax = incomeTax * 0.1;
+
+  const totalDeduct = ins.total + incomeTax + localTax;
+  const net = monthly - totalDeduct;
+
+  const box = document.getElementById('salResult');
+  box.innerHTML = `
+    <div class="result-main">월 예상 실수령액: ${won(net)}</div>
+    <table class="result-table">
+      <tr><td>월 급여 (세전)</td><td>${won(monthly)}</td></tr>
+      <tr><td>국민연금</td><td>-${won(ins.pension)}</td></tr>
+      <tr><td>건강보험 + 장기요양</td><td>-${won(ins.health + ins.ltc)}</td></tr>
+      <tr><td>고용보험</td><td>-${won(ins.emp)}</td></tr>
+      <tr><td>근로소득세 (예상)</td><td>-${won(incomeTax)}</td></tr>
+      <tr><td>지방소득세</td><td>-${won(localTax)}</td></tr>
+      <tr class="total"><td>공제 합계</td><td>-${won(totalDeduct)}</td></tr>
+      <tr class="total"><td>월 실수령액</td><td>${won(net)}</td></tr>
+      <tr><td>연 실수령액 (예상)</td><td>${won(net * 12)}</td></tr>
+    </table>`;
+  box.classList.add('show');
+}
+
+/* ===== 퇴직금 ===== */
+function calcSeverance() {
+  const start = document.getElementById('sevStart').value;
+  const end = document.getElementById('sevEnd').value;
+  const salary = num('sevSalary');
+  if (!start || !end || !salary) { alert('입사일, 퇴사일, 월급을 모두 입력하세요.'); return; }
+  const startD = new Date(start), endD = new Date(end);
+  const days = Math.floor((endD - startD) / 86400000) + 1;
+  if (days <= 0) { alert('퇴사일이 입사일보다 빠릅니다.'); return; }
+
+  // 퇴사 전 3개월 일수 (실제 날짜 기준)
+  const threeMonthsAgo = new Date(endD);
+  threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+  const periodDays = Math.floor((endD - threeMonthsAgo) / 86400000);
+
+  const bonus3m = num('sevBonus') * 3 / 12;
+  const leave3m = num('sevLeave') * 3 / 12;
+  const total3m = salary * 3 + bonus3m + leave3m;
+  const avgDaily = total3m / periodDays;
+  const severance = avgDaily * 30 * (days / 365);
+
+  const box = document.getElementById('sevResult');
+  const under1yr = days < 365 ? '<tr><td colspan="2" style="color:var(--red); font-weight:700;">⚠ 재직기간 1년 미만은 법정 퇴직금 지급 대상이 아닙니다.</td></tr>' : '';
+  box.innerHTML = `
+    <div class="result-main">예상 퇴직금: ${won(severance)}</div>
+    <table class="result-table">
+      ${under1yr}
+      <tr><td>재직일수</td><td>${days.toLocaleString()}일 (약 ${(days/365).toFixed(1)}년)</td></tr>
+      <tr><td>퇴사 전 3개월 임금 총액</td><td>${won(total3m)}</td></tr>
+      <tr><td>1일 평균임금</td><td>${won(avgDaily)}</td></tr>
+      <tr class="total"><td>예상 퇴직금 (세전)</td><td>${won(severance)}</td></tr>
+    </table>`;
+  box.classList.add('show');
+}
+
+/* ===== 이자 ===== */
+document.querySelectorAll('input[name="intType"]').forEach(r => r.addEventListener('change', () => {
+  document.getElementById('intAmountLabel').textContent =
+    r.value === 'saving' && r.checked ? '월 납입액 (원)' : '예치 금액 (원)';
+}));
+
+function calcInterest() {
+  const amount = num('intAmount'), months = num('intMonths'), rate = num('intRate') / 100;
+  if (!amount || !months || !rate) { alert('금액, 기간, 이율을 모두 입력하세요.'); return; }
+  const type = document.querySelector('input[name="intType"]:checked').value;
+  const method = document.querySelector('input[name="intMethod"]:checked').value;
+  const taxRate = document.querySelector('input[name="intTax"]:checked').value === 'normal' ? 0.154 : 0;
+
+  let principal, interest;
+  if (type === 'deposit') {
+    principal = amount;
+    interest = method === 'simple'
+      ? amount * rate * months / 12
+      : amount * (Math.pow(1 + rate / 12, months) - 1);
+  } else {
+    principal = amount * months;
+    if (method === 'simple') {
+      interest = amount * (rate / 12) * months * (months + 1) / 2;
+    } else {
+      const m = rate / 12;
+      interest = amount * ((Math.pow(1 + m, months) - 1) / m) * (1 + m) - principal;
+    }
+  }
+  const tax = interest * taxRate;
+  const box = document.getElementById('intResult');
+  box.innerHTML = `
+    <div class="result-main">세후 수령액: ${won(principal + interest - tax)}</div>
+    <table class="result-table">
+      <tr><td>원금 합계</td><td>${won(principal)}</td></tr>
+      <tr><td>세전 이자</td><td>+${won(interest)}</td></tr>
+      <tr><td>이자소득세 (${(taxRate*100).toFixed(1)}%)</td><td>-${won(tax)}</td></tr>
+      <tr class="total"><td>세후 수령액</td><td>${won(principal + interest - tax)}</td></tr>
+    </table>`;
+  box.classList.add('show');
+}
+
+/* ===== 부가세 ===== */
+document.querySelectorAll('input[name="vatDir"]').forEach(r => r.addEventListener('change', () => {
+  document.getElementById('vatLabel').textContent =
+    document.querySelector('input[name="vatDir"]:checked').value === 'fromSupply' ? '공급가액 (원)' : '합계금액 (원)';
+}));
+
+function calcVat() {
+  const amount = num('vatAmount');
+  if (!amount) { alert('금액을 입력하세요.'); return; }
+  const dir = document.querySelector('input[name="vatDir"]:checked').value;
+  let supply, vat;
+  if (dir === 'fromSupply') { supply = amount; vat = amount * 0.1; }
+  else { supply = amount / 1.1; vat = amount - supply; }
+  const box = document.getElementById('vatResult');
+  box.innerHTML = `
+    <div class="result-main">합계금액: ${won(supply + vat)}</div>
+    <table class="result-table">
+      <tr><td>공급가액</td><td>${won(supply)}</td></tr>
+      <tr><td>부가세 (10%)</td><td>${won(vat)}</td></tr>
+      <tr class="total"><td>합계금액</td><td>${won(supply + vat)}</td></tr>
+    </table>`;
+  box.classList.add('show');
+}
+
+/* ===== 환율 ===== */
+let exRates = null, exFetchedAt = null;
+async function calcExchange() {
+  const box = document.getElementById('exResult');
+  box.classList.add('show');
+  if (!exRates) {
+    box.innerHTML = '<div style="font-size:14px;">환율 정보를 불러오는 중...</div>';
+    try {
+      const res = await fetch('https://open.er-api.com/v6/latest/USD');
+      const data = await res.json();
+      if (data.result !== 'success') throw new Error();
+      exRates = data.rates;
+      exFetchedAt = new Date(data.time_last_update_utc);
+    } catch (e) {
+      box.innerHTML = '<div style="font-size:14px; color:var(--red);">환율 정보를 불러오지 못했습니다. 인터넷 연결을 확인하세요.</div>';
+      return;
+    }
+  }
+  const amount = num('exAmount');
+  const from = document.getElementById('exFrom').value;
+  const to = document.getElementById('exTo').value;
+  const result = amount / exRates[from] * exRates[to];
+  const unit = 1 / exRates[from] * exRates[to];
+  box.innerHTML = `
+    <div class="result-main">${amount.toLocaleString('ko-KR')} ${from} = ${result.toLocaleString('ko-KR', {maximumFractionDigits: 2})} ${to}</div>
+    <table class="result-table">
+      <tr><td>적용 환율</td><td>1 ${from} = ${unit.toLocaleString('ko-KR', {maximumFractionDigits: 4})} ${to}</td></tr>
+      <tr><td>기준 시점</td><td>${exFetchedAt ? exFetchedAt.toLocaleString('ko-KR') : '-'}</td></tr>
+    </table>`;
+}
+
+/* ===== 키워드 검색 ===== */
+function searchKeyword(engine) {
+  const kw = document.getElementById('kwInput').value.trim();
+  const q = encodeURIComponent(kw);
+  const urls = {
+    naver: `https://search.naver.com/search.naver?query=${q}`,
+    naverBlog: `https://search.naver.com/search.naver?ssc=tab.blog.all&query=${q}`,
+    naverNews: `https://search.naver.com/search.naver?ssc=tab.news.all&query=${q}`,
+    naverShopping: `https://search.shopping.naver.com/search/all?query=${q}`,
+    datalab: `https://datalab.naver.com/keyword/trendSearch.naver`,
+    google: `https://www.google.com/search?q=${q}`,
+    googleTrends: `https://trends.google.co.kr/trends/explore?geo=KR&q=${q}`
+  };
+  if (!kw && engine !== 'datalab') { alert('검색어를 입력하세요.'); return; }
+  window.open(urls[engine], '_blank');
+}
+</script>
+</body>
+</html>
