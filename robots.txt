@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moonled12-glitch.github.io/Workbox/sitemap.xml
